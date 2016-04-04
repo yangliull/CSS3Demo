@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>移动的图片</title>
+	<style>
+		#wrap {
+			width: 800px;
+			background: red;
+			margin: 50px auto;
+			position: relative;
+			overflow: hidden;
+		}
+		#imgs {
+			width: 2000px;			
+			-webkit-animation:move 8s linear infinite;	
+		}
+		@keyframes move{
+			0% {
+				-webkit-transform:translate(0);
+			}
+			20% {
+				-webkit-transform:translate(-200px);
+			}
+			40% {
+				-webkit-transform:translate(-400px);
+			}			
+			60% {
+				-webkit-transform:translate(-600px);
+			}
+			80% {
+				-webkit-transform:translate(-800px);
+			}			
+			100% {
+				-webkit-transform:translate(-1000px);
+			}
+		}
+		#imgs:hover {
+			/*划入停止做动画*/
+			animation-play-state:paused;
+		}
+		#imgs img {
+			width: 200px;
+			float: left;			
+		}
+		
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<div id="imgs">
+			<img src="pic/1.jpg" alt="1.jpg">
+			<img src="pic/2.jpg" alt="2.jpg">
+			<img src="pic/3.jpg" alt="3.jpg">
+			<img src="pic/4.jpg" alt="4.jpg">
+			<img src="pic/5.jpg" alt="5.jpg">
+			<img src="pic/1.jpg" alt="1.jpg">
+			<img src="pic/2.jpg" alt="2.jpg">
+			<img src="pic/3.jpg" alt="3.jpg">
+			<img src="pic/4.jpg" alt="4.jpg">
+			<img src="pic/5.jpg" alt="5.jpg">
+		</div>
+	</div>	
+	<script>
+		var oImgs = document.getElementById('imgs');
+		// oImgs.onclick = function() {
+		// 	this.className = "move";
+		// }
+		console.log(oImgs.offsetWidth);
+		// oImgs.onmouseover = function(){
+		// 	console.log(11);
+		// 	this.style.webkitAnimation=null;
+		// }
+	</script>
+</body>
+</html>

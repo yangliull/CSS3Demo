@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>clock</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		#clock {
+			width: 360px;
+			height: 360px;
+			margin: 100px auto;
+			border-radius: 50%;
+			border: 1px solid #111;	
+			position: relative;		
+		}
+		#dail li {
+			width: 4px;
+			height: 10px;
+			background-color: #000;
+			position: absolute;
+			left: 180px;
+			margin-left: -2px;
+			-webkit-transform-origin:2px 180px;			
+		}
+		#dail li:nth-child(5n+1) {
+			height: 20px;
+		}
+		#hour {
+			width: 6px;
+			height: 90px;
+			background-color: #111;
+			position: absolute;
+			left:177px;
+			top:90px;
+			-webkit-transform-origin:bottom;			
+		}
+		#minute {
+			width: 4px;
+			height: 110px;
+			background-color: #aaa;
+			position: absolute;
+			left:178px;
+			top:70px;
+			-webkit-transform-origin:bottom;						
+		}
+		#second {
+			width: 2px;
+			height: 130px;
+			background-color: #f00;
+			position: absolute;
+			left:179px;
+			top:50px;
+			-webkit-transform-origin:bottom;						
+		}
+	</style>
+</head>
+<body>
+	<div id="clock">
+		<ul id="dail"></ul>
+		<div id="hour"></div>
+		<div id="minute"></div>
+		<div id="second"></div>
+	</div>
+</body>
+<script>
+	var aUl = document.getElementById('dail');
+	var html='';
+	for(var i=0;i<60;i++) {
+		html += '<li style="-webkit-transform:rotate('+6*i+'deg)"></li>'
+	}
+	aUl.innerHTML = html;
+
+	var aHour = document.getElementById('hour'),
+		aMinute = document.getElementById('minute'),
+		aSecond = document.getElementById('second');
+
+	function dida() {
+		var now = new Date();
+		var second = now.getSeconds(),
+			minute = now.getMinutes() + second/60,		
+			hour = now.getHours() + minute/60;
+		aHour.style.WebkitTransform = 'rotate('+hour*30+'deg)';
+		aMinute.style.WebkitTransform = 'rotate('+minute*6+'deg)';
+		aSecond.style.WebkitTransform = 'rotate('+second*6+'deg)';
+	}
+	dida();
+	setInterval(dida,1000);
+</script>
+</html>

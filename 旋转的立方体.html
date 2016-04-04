@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>旋转的立方体</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			background-color: #000;
+		}
+		#stage {
+			-webkit-perspective:800px;
+			perspective:800px;	
+			-webkit-perspective-origin:center 20%;
+			perspective-origin:center 20%;
+		}
+		#contain {
+			width: 200px;
+			height: 200px;			
+			margin: 100px auto;
+			margin-top: 100px;
+			position: relative;			
+			-webkit-transform-style:preserve-3d;
+			transform-style:preserve-3d;
+			-webkit-animation:circle 4s linear infinite;
+		}
+		@-webkit-keyframes circle {
+			0% {				
+				-webkit-transform:rotateY(0deg);
+			}
+			100% {				
+				-webkit-transform:rotateY(-360deg);
+			}
+		}
+		#contain .mian {
+			width: 200px;
+			height: 200px;
+			background-color: #fff;
+			opacity: 0.6;
+			border-radius: 5px;
+			border: 1px solid #eee;
+			font-size: 96px;
+			text-align: center;
+			line-height: 200px;
+			position: absolute;			
+		}
+		#contain .one {
+			-webkit-transform:scale3d(1.2,1.2,1.2) rotateX(90deg) translateZ(100px);
+			transform:scale3d(1.2,1.2,1.2) rotateX(90deg) translateZ(100px);
+		}
+		#contain .three {
+			-webkit-transform:scale3d(1.2,1.2,1.2) rotateY(90deg) translateZ(100px);
+			transform:scale3d(1.2,1.2,1.2) rotateY(90deg) translateZ(100px);
+		}
+		#contain .five {
+			-webkit-transform:scale3d(1.2,1.2,1.2) rotateY(-90deg) translateZ(100px);
+			transform:scale3d(1.2,1.2,1.2) rotateY(-90deg) translateZ(100px);
+		}
+		#contain .six {
+			-webkit-transform:scale3d(1.2,1.2,1.2) rotateX(-90deg) translateZ(100px);
+			transform:scale3d(1.2,1.2,1.2) rotateX(-90deg) translateZ(100px);
+		}		
+		#contain .four {
+			-webkit-transform:scale3d(1.2,1.2,1.2) rotateY(360deg) translateZ(100px);
+			transform:scale3d(1.2,1.2,1.2) rotateY(180deg) translateZ(100px);
+		}
+		#contain .two {
+			-webkit-transform:scale3d(1.2,1.2,1.2) translateZ(100px);
+			transform:scale3d(1.2,1.2,1.2) translateZ(100px);
+		}
+	</style>
+</head>
+<body>
+	<div id="stage">
+		<div id="contain">
+			<div class="mian one">1</div>
+			<div class="mian two">2</div>
+			<div class="mian three">3</div>
+			<div class="mian four">4</div>
+			<div class="mian five">5</div>
+			<div class="mian six">6</div>
+		</div>
+	</div>	
+</body>
+</html>

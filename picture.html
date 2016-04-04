@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Picture</title>
+</head>
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	body {
+		background-color: #eee;
+	}	
+	#box {
+		width: 500px;
+		height: 300px;
+		margin: 50px auto;
+		position: relative;
+		-webkit-perspective : 1000px;
+	}
+	#box a {		
+		width: 50px;
+		height: 50px;
+		background-color: #efefef;
+		border-radius: 50%;
+		position: absolute;
+		top:100px;
+		font-size: 40px;
+		text-decoration: none;
+		text-align: center;
+		line-height: 50px;
+		-webkit-text-stroke:2px #ccc;/*对文本进行描边*/
+		text-stroke:2px #ccc;
+		-webkit-box-shadow:2px 2px 10px #666;/*边框阴影*/
+		box-shadow:2px 2px 10px #666;
+	}
+	#box #prv {
+		left:-100px;
+	}
+	#box #next {
+		right:-100px;
+	}
+	#imgs img {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		opacity: 0;
+		-webkit-transform-origin : bottom;
+	}
+	#imgs .show {
+		-webkit-animation:show 1.2s ease forwards;
+	}
+	@-webkit-keyframes show{
+		0% {
+			-webkit-transform:rotateX(180deg);
+			opacity: 0;
+		}		
+		62% {
+			-webkit-transform:rotateX(-20deg);			
+		}
+		78% {
+			-webkit-transform:rotateX(15deg);			
+		}
+		85% {
+			-webkit-transform:rotateX(-10deg);			
+		}
+		93% {
+			-webkit-transform:rotateX(5deg);			
+		}
+		100% {
+			-webkit-transform:rotateX(0deg);
+			opacity: 1;
+		}
+	}
+	#imgs .hide {
+		-webkit-animation:hide 1s ease;
+	}
+	@-webkit-keyframes hide{
+		0% {
+			-webkit-transform:rotateX(0deg);
+			opacity: 1;
+		}		
+		100% {
+			-webkit-transform:rotateX(-180deg);
+			opacity: 0;
+		}
+	}
+</style>
+<body>
+	<div id="box">
+		<a href="#" id="prv">&lt;</a>
+		<div id="imgs">
+			<img src="pic/1.jpg" alt="" class="show">
+			<img src="pic/2.jpg" alt="">
+			<img src="pic/3.jpg" alt="">
+			<img src="pic/4.jpg" alt="">
+			<img src="pic/5.jpg" alt="">
+		</div>
+		<a href="#" id="next">&gt;</a>
+	</div>
+</body>
+<script>
+	var oNext = document.getElementById('next');
+	var oPrv = document.getElementById('prv');
+	var oImgs = document.getElementById('imgs');
+	var aImg = oImgs.getElementsByTagName('img');
+
+	var index = 0;
+	oNext.onclick = function() {
+		aImg[index].className = 'hide';
+		index++;
+		if(index==aImg.length) {
+			index=0;
+		}
+		aImg[index].className = 'show';
+	}
+
+	oPrv.onclick = function() {
+		aImg[index].className = 'hide';
+		index--;
+		if(index==-1) {
+			index=aImg.length-1;
+		}
+		aImg[index].className = 'show';
+	}
+</script>
+</html>
