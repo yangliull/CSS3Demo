@@ -11,8 +11,7 @@
 			position: relative;
 			overflow: hidden;
 		}
-		#imgs {
-			width: 2000px;			
+		#imgs {			
 			-webkit-animation:move 8s linear infinite;	
 		}
 		@keyframes move{
@@ -53,24 +52,14 @@
 			<img src="pic/2.jpg" alt="2.jpg">
 			<img src="pic/3.jpg" alt="3.jpg">
 			<img src="pic/4.jpg" alt="4.jpg">
-			<img src="pic/5.jpg" alt="5.jpg">
-			<img src="pic/1.jpg" alt="1.jpg">
-			<img src="pic/2.jpg" alt="2.jpg">
-			<img src="pic/3.jpg" alt="3.jpg">
-			<img src="pic/4.jpg" alt="4.jpg">
-			<img src="pic/5.jpg" alt="5.jpg">
+			<img src="pic/5.jpg" alt="5.jpg">			
 		</div>
 	</div>	
 	<script>
 		var oImgs = document.getElementById('imgs');
-		// oImgs.onclick = function() {
-		// 	this.className = "move";
-		// }
-		console.log(oImgs.offsetWidth);
-		// oImgs.onmouseover = function(){
-		// 	console.log(11);
-		// 	this.style.webkitAnimation=null;
-		// }
+		var aImg = oImgs.getElementsByTagName('img');
+		oImgs.innerHTML += oImgs.innerHTML;
+		oImgs.style.width = aImg.length*aImg[0].offsetWidth + 'px';			
 	</script>
 </body>
 </html>
